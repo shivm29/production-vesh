@@ -4,7 +4,7 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import cors from 'cors';
 import path from 'path'
-
+import {fileURLToPath} from 'url';
 // import all the routes related to authentication from authRoute.js file
 import authRoutes from './routes/authRoute.js'
 import categoryRoutes from './routes/categoryRoutes.js'
@@ -14,7 +14,9 @@ dotenv.config();
 
 // database config
 connectDB();
-
+// esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // creating rest object to create APIs
 const app = express()
 
